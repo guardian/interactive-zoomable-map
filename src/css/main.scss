@@ -1,0 +1,72 @@
+@import "mq";
+@import "fonts";
+@import "palette";
+// Uncomment for embeds
+//@import "embed";
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+.element-atom,
+.interactive-atom {
+    margin-left: 0px !important;
+}
+
+.background {
+  fill: none;
+  pointer-events: all; 
+}
+
+.feature {
+  fill: white;
+  cursor: pointer;
+}
+
+.feature.active {
+  fill: white;
+  stroke-width:0.1px;
+}
+
+.mesh {
+  fill: none;
+  stroke: #333;
+  stroke-width:0.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.outline-main-map{
+	fill:none;
+	stroke:black;
+	stroke-width:2px;
+}
+
+.Stabbed{
+	fill:#056DA1;
+	fill-opacity:.5;
+	stroke:#056DA1;
+}
+
+.Shot{
+	fill:#FF7F00;
+	fill-opacity:.5;
+	stroke:#FF7F00;
+}
+
+.other{
+	fill:#951D7A;
+	fill-opacity:.5;
+	stroke:#951D7A;
+}
+
+.over{
+	stroke:black;
+	stroke-width:.5px !important;
+}
+
+.borough-headline{
+	font-size: 18px;
+    line-height: 24px;
+    font-family: "Guardian Headline","Guardian Egyptian Web","Guardian Headline Full",Georgia,serif;
+    font-weight: 700;
+    margin: 0;
+    font-weight: bold;
+}
