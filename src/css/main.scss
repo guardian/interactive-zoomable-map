@@ -5,9 +5,51 @@
 //@import "embed";
 // Uncomment for full screen (including immersive article main media)
 //@import "fullscreen";
-.element-atom,
-.interactive-atom {
-    margin-left: 0px !important;
+.element.element-atom{
+  margin-left: 0px !important;
+
+    @include mq(leftCol) {
+      margin-left: 160px !important;
+    }
+    @include mq(wide) {
+      margin-left: 240px !important;
+    }
+}
+
+.murders-type{
+  width: 100%;
+  max-width:860px;
+  position:relative;
+  z-index:1000!important;
+}
+
+.murders-standfirst {
+  @include fs-headline(3);
+  font-weight: 200;
+  max-width: 280px;
+
+  @include mq(tablet) {
+  max-width: 480px;
+  font-size: 22px;
+  line-height: 25px;
+  }
+
+  margin-bottom: 12px;
+}
+.murders-standfirst span{
+  @include fs-headline(3);
+  font-weight: 800;
+}
+
+.murders-standfirst-stabbings{
+  color: #056DA1;
+}
+
+.murders-standfirst-shootings{
+  color: #FF7F00;
+}
+.murders-standfirst-others{
+  color: #951D7A;
 }
 
 .background {
@@ -57,16 +99,202 @@
 	stroke:#951D7A;
 }
 
-.over{
-	stroke:black;
-	stroke-width:.5px !important;
-}
-
 .borough-headline{
 	font-size: 18px;
     line-height: 24px;
     font-family: "Guardian Headline","Guardian Egyptian Web","Guardian Headline Full",Georgia,serif;
     font-weight: 700;
-    margin: 0;
     font-weight: bold;
+    position:relative;
+    display:flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding:6px;
 }
+
+.map-zoom__cancel {
+    height: 19px;
+    width: 19px;
+    right: 0;
+    top: 0px;
+    background: #eaeaea;
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: 6px;
+    display:none;
+}
+
+.tooltip{
+  min-width:100%;
+  height:auto;
+  padding:6px;
+  position:absolute;
+  z-index: 1011 !important;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  background: #fff;
+  border: 1px solid #333;
+  display: none;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  color: #333333;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 1px solid #333;
+  box-shadow: 2px 2px 0 0 #333;
+  bottom:0px;
+  &.over{
+    display: flex;
+  }
+}
+
+
+.tooltip-small{
+  min-width:150px;
+  height:auto;
+  padding:6px;
+  position:absolute;
+  z-index: 1011 !important;
+  font-size: 12px;
+  line-height: 16px;
+  font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  background: #fff;
+  border: 1px solid #333;
+  display: none;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  color: #333333;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 1px solid #333;
+  box-shadow: 2px 2px 0 0 #333;
+
+  &.over{
+    display: flex;
+  }
+}
+
+.tooltip-name {
+  font-size: 16px;
+  line-height: 18px;
+  font-family: "Guardian Headline","Guardian Egyptian Web","Guardian Headline Full",Georgia,serif;
+  font-weight: normal;
+  color: #000;
+  font-weight: 900;
+}
+
+.tooltip-age{
+  font-size: 12px;
+  font-family: "Guardian Headline","Guardian Egyptian Web","Guardian Headline Full",Georgia,serif;
+  font-weight: bold;
+  color: #000;
+  font-weight: 900;
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 5px;
+  padding-bottom:5px;
+  width: calc(100% -12px);
+}
+
+.tooltip-date{
+  font-size: 12px;
+  font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+  color: #c70000;
+  font-weight: 900;
+}
+
+.tooltip-borough{
+  border-bottom: 1px solid #dadada;
+  margin-bottom: 5px;
+  padding-bottom:5px;
+}
+
+.tooltip-close-button{
+  position: absolute;
+  right: 12px;
+}
+
+.murder-circle-over{
+  stroke:black;
+  stroke-width:2px;
+}
+
+.borough-label{
+  font-family:'Guardian Text Sans Web' , Georgia, serif;
+  font-size:12px;
+  fill:#929297;
+}
+.annotation-headline{
+  font-family:"Guardian Headline","Guardian Egyptian Web","Guardian Headline Full",Georgia,serif;
+  font-weight: bold;
+  font-size:20px;
+  fill:#333333;
+}
+.annotation-text{
+  font-family: 'Guardian Text Sans Web' , Georgia, serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: #333333;
+}
+
+.outline-small-multiples{
+  stroke:#929297;
+  fill:none;
+  stroke-width:1px;
+  stroke-linecap: round;
+}
+
+.borough-small-multiples{
+  stroke:#929297;
+  fill:white;
+  stroke-width:.5px;
+}
+
+.small-multiple-wrapper{
+  
+  height:auto;
+  position:relative;
+  float:left;
+  margin: 0 12px 0 0;
+
+  padding:0 !important;
+
+  @include mq(mobile) {
+    min-width: 45%;
+  }
+  @include mq(tablet){
+    min-width: 200px;
+  }
+  @include mq(desktop){
+    min-width: 200px;
+  }
+  @include mq(leftCol){
+    min-width: 200px;
+  }
+  @include mq(wide){
+    min-width: 200px;
+  }
+}
+
+.small-multiple-total{
+  @include fs-GuardianHeadlineFull(5, true);
+  font-weight: 800;
+  color: #333333;
+}
+
+.small-multiple-month{
+  font-family: 'Guardian Text Sans Web' , Georgia, serif;
+  font-weight: 300;
+  font-size: 14px;
+  color:#333333;
+}
+
+.small-multiples-circle{
+  fill:black;
+}
+.small-multiples-circle-past{
+  fill:#DADADA;
+}
+
+
+
